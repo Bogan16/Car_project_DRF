@@ -21,5 +21,6 @@ from car_app.views import HomeView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name='home'),
+    path('', include('car_app.urls')),
     path('api/', include('car_app.urls')),
 ]
