@@ -1,6 +1,16 @@
 from rest_framework import generics
 from .models import Auto, Owner, AutosPassport
 from .serializers import SerializedAuto, SerializedOwner, SerializedAutosPassport
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
+class HomeView(APIView):
+    
+    def get(self, request):
+        data = {
+            "message": "Welcome to the auto project!",
+        }
+        return Response(data)
 
 class OwnerListCreateView(generics.ListCreateAPIView):
     queryset = Owner.objects.all()
